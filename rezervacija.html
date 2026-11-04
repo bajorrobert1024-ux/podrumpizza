@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e9">
+  <meta name="description" content="Pripremite upit za rezervaciju stola u Podrumizzi. Izaberite broj gostiju, željeni termin i da li želite da predložite jela unapred.">
+  <title>Rezervacija stola — Podrumizza</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fraunces-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="rezervacija.css">
+  <script src="rezervacija.js" defer></script>
+</head>
+<body class="reservation-page">
+  <a class="skip-link" href="#reservation-main">Preskoči na obrazac</a>
+  <div class="announcement"><span class="status-dot"></span> DOBRO DRUŠTVO POČINJE ZA ISTIM STOLOM</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="index.html" aria-label="Podrumizza — početna">podrumizza<span>PIZZERIA & RESTORAN</span></a>
+      <nav class="reservation-nav" aria-label="Navigacija rezervacije">
+        <a class="reservation-home" href="index.html"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg> Početna</a>
+        <a href="index.html#meni" target="_blank" rel="noopener noreferrer">Pogledajte meni <svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg><span class="sr-only"> (otvara se u novoj kartici)</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="reservation-main" class="section-wrap reservation-main" tabindex="-1">
+    <div class="reservation-intro">
+      <div class="eyebrow">ZA VAŠIM STOLOM POČINJE DOBRA PRIČA</div>
+      <h1 class="reservation-heading">Vaš sto.<br><em>Vaši trenuci.</em></h1>
+      <p>Ručak za dvoje ili okupljanje cele ekipe?<br>Recite nam kako zamišljate svoj dolazak.</p>
+    </div>
+
+    <div class="reservation-layout">
+      <section class="reservation-workspace" aria-labelledby="form-heading">
+        <div id="reservation-form-view">
+          <div class="reservation-card-heading"><span class="eyebrow">JEDAN STO. MNOGO DOBRIH RAZLOGA.</span><h2 id="form-heading">Planirajmo vaš dolazak.</h2><p>Polja označena zvezdicom <span aria-hidden="true">*</span><span class="sr-only">(zvezdica)</span> su obavezna.</p></div>
+          <div class="reservation-notice"><span class="notice-icon" aria-hidden="true">i</span><p>Ovo je <strong>upit za rezervaciju</strong>. Obrazac priprema tekst koji sami šaljete restoranu preko Instagrama. Sto, termin i priprema jela važe tek kada ih osoblje potvrdi.</p></div>
+          <noscript><p class="reservation-notice">Za pripremu upita uključite JavaScript ili se javite direktno na <a href="https://www.instagram.com/pizzapodrumizza/" target="_blank" rel="noopener noreferrer">Instagram profil Podrumizze</a>.</p></noscript>
+          <div id="form-errors" class="form-errors" role="alert" tabindex="-1" hidden><h3>Proverite sledeća polja.</h3><ul id="form-error-list"></ul></div>
+          <form id="reservation-form" novalidate>
+            <fieldset class="reservation-fieldset">
+              <legend><span>01</span> Da se upoznamo.</legend>
+              <div class="form-grid">
+                <div class="reservation-field"><label for="guest-name">Ime i prezime <span aria-hidden="true">*</span></label><input id="guest-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="100" aria-describedby="name-error" placeholder="Kako da vas oslovimo?"><p id="name-error" class="field-error" hidden></p></div>
+                <div class="reservation-field"><label for="guest-phone">Broj telefona <span aria-hidden="true">*</span></label><input id="guest-phone" name="phone" type="tel" autocomplete="tel" required maxlength="40" aria-describedby="phone-help phone-error" placeholder="Npr. +381 64 123 4567"><p id="phone-help" class="field-help">Broj na koji osoblje može da vas kontaktira.</p><p id="phone-error" class="field-error" hidden></p></div>
+                <div class="reservation-field full-width"><label for="guest-email">E-mail <span class="optional-label">opciono</span></label><input id="guest-email" name="email" type="email" autocomplete="email" maxlength="254" aria-describedby="email-error" placeholder="vase.ime@primer.rs"><p id="email-error" class="field-error" hidden></p></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="reservation-fieldset">
+              <legend><span>02</span> Kada se vidimo?</legend>
+              <div class="form-grid">
+                <div class="reservation-field"><label for="reservation-date">Željeni datum <span aria-hidden="true">*</span></label><input id="reservation-date" name="date" type="date" required aria-describedby="date-help date-error"><p id="date-help" class="field-help">Dostupnost datuma potvrđuje restoran.</p><p id="date-error" class="field-error" hidden></p></div>
+                <div class="reservation-field"><label for="reservation-time">Željeno vreme <span aria-hidden="true">*</span></label><input id="reservation-time" name="time" type="time" required step="60" aria-describedby="time-help time-error"><p id="time-help" class="field-help">Termin zavisi od radnog vremena i slobodnih stolova.</p><p id="time-error" class="field-error" hidden></p></div>
+                <div class="reservation-field full-width"><label for="guest-count">Broj gostiju <span aria-hidden="true">*</span></label><input id="guest-count" name="guests" type="number" min="1" max="50" step="1" required inputmode="numeric" placeholder="Koliko vas dolazi?" aria-describedby="guests-help guests-error"><p id="guests-help" class="field-help">Od 1 do 50 gostiju. Veća okupljanja zahtevaju poseban dogovor.</p><p id="guests-error" class="field-error" hidden></p></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="reservation-fieldset meal-fieldset" aria-describedby="meal-error">
+              <legend><span>03</span> Hoćemo li nešto pripremiti?</legend>
+              <p class="fieldset-intro">Možete da odlučite za stolom ili da uz upit pošaljete želje za obrok. Izaberite jednu opciju.</p>
+              <div class="meal-options">
+                <label class="meal-option" for="meal-later"><input id="meal-later" name="mealChoice" type="radio" value="later" required checked><span class="meal-option-copy"><strong>Odlučićemo kada dođemo</strong><span>Za sada želimo samo da dogovorimo sto.</span></span></label>
+                <label class="meal-option" for="meal-advance"><input id="meal-advance" name="mealChoice" type="radio" value="advance" required><span class="meal-option-copy"><strong>Želimo da izaberemo jela unapred</strong><span>Da obrok bude spreman po dolasku. Jela, količine i vreme pripreme potvrđuje osoblje.</span></span></label>
+              </div>
+              <p id="meal-error" class="field-error" hidden></p>
+              <div id="advance-meal-fields" class="advance-meal-fields" hidden>
+                <div class="reservation-field"><label for="meal-dishes">Željena jela i količine <span aria-hidden="true">*</span></label><textarea id="meal-dishes" name="dishes" rows="4" maxlength="2000" disabled aria-describedby="dishes-help dishes-error" placeholder="Npr. 2 × Margherita, 1 × roštilj plata za deljenje…"></textarea><p id="dishes-help" class="field-help"><a href="index.html#meni" target="_blank" rel="noopener noreferrer">Pogledajte predlog menija <svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg><span class="sr-only"> (otvara se u novoj kartici)</span></a>. Konačna jela, porcije, cene i mogućnost pripreme čekaju potvrdu restorana.</p><p id="dishes-error" class="field-error" hidden></p></div>
+              </div>
+              <div class="reservation-field dietary-field"><label for="dietary-note">Alergije i posebni zahtevi u ishrani <span class="optional-label">opciono</span></label><textarea id="dietary-note" name="dietary" rows="2" maxlength="1000" placeholder="Navedite ono što osoblje treba da zna." aria-describedby="dietary-help"></textarea><p id="dietary-help" class="field-help">Obavezno proverite sastav i mogućnost prilagođavanja direktno sa osobljem. Sam unos ne potvrđuje da zahtev može biti ispunjen.</p></div>
+            </fieldset>
+
+            <div class="reservation-field note-field"><label for="visit-note">Još nešto za nas? <span class="optional-label">opciono</span></label><textarea id="visit-note" name="note" rows="3" maxlength="1500" placeholder="Povod, dečja stolica, posebna želja…"></textarea></div>
+            <div class="reservation-submit"><button class="button" type="submit" id="prepare-request" disabled>Pregledaj upit <svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></button><p>Ništa se ne šalje automatski.<br>Podaci se ne šalju dok sami ne prosledite upit.</p></div>
+          </form>
+        </div>
+
+        <section id="reservation-summary" class="reservation-summary" aria-labelledby="summary-heading" hidden>
+          <span class="summary-symbol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="m13 24 7 7 16-17"/><circle cx="24" cy="24" r="21"/></svg></span>
+          <div class="eyebrow">PRVI KORAK KA DOBROM DRUŽENJU</div>
+          <h2 id="summary-heading" tabindex="-1">Vaš upit je spreman.</h2>
+          <p class="summary-lead">Još jedan korak: kopirajte ga i sami pošaljite Podrumizzi na Instagramu.</p>
+          <div class="summary-unconfirmed"><strong>Rezervacija još nije potvrđena.</strong><p>Ovim pregledom nije poslata poruka niti rezervisan sto. Sačekajte izričitu potvrdu osoblja za datum, vreme, broj mesta i eventualnu pripremu jela.</p></div>
+          <dl id="reservation-summary-details" class="reservation-summary-details"></dl>
+          <div class="summary-actions"><button type="button" class="button" id="copy-request">Kopiraj upit <svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button><a class="button button-outline" href="https://www.instagram.com/pizzapodrumizza/" target="_blank" rel="noopener noreferrer" id="reservation-instagram">Otvori Instagram <svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
+          <p class="summary-manual-note">Otvaranje Instagrama samo vodi na profil. Nalepite ili priložite tekst upita u poruku i pošaljite ga sami.</p>
+          <button type="button" class="summary-edit" id="edit-request"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg> Izmeni podatke</button>
+          <p id="request-copy-status" class="request-copy-status" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+
+      <aside class="reservation-sidebar" aria-labelledby="sidebar-title">
+        <div class="reservation-photo"><img src="assets/grill.webp" alt="Ilustracija roštilja i povrća za deljenje za zajedničkim stolom" width="1024" height="1024"><span>ZA VAŠU OMILJENU EKIPU.</span></div>
+        <div class="reservation-sidebar-copy"><div class="eyebrow">JEDNOSTAVNO DO DOGOVORA</div><h2 id="sidebar-title">Dobar plan.<br><em>Još bolji susret.</em></h2><ol class="reservation-steps"><li><span>01</span><div><h3>Opišite svoj dolazak.</h3><p>Datum, vreme, broj gostiju i vaša ideja za obrok.</p></div></li><li><span>02</span><div><h3>Prosledite upit.</h3><p>Kopirajte pripremljen tekst i pošaljite ga preko Instagrama.</p></div></li><li><span>03</span><div><h3>Sačekajte potvrdu.</h3><p>Osoblje potvrđuje sto, termin i dogovor oko hrane.</p></div></li></ol><a class="reservation-menu-link" href="index.html#meni" target="_blank" rel="noopener noreferrer">Zavirite u predlog menija <svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg><span class="sr-only"> (otvara se u novoj kartici)</span></a><p class="sidebar-photo-note">Fotografija je ilustracija vizuelnog koncepta. Raspoloživost stolova i sve pojedinosti vašeg dolaska potvrđuje osoblje.</p></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="reservation-footer section-wrap"><a class="wordmark" href="index.html">podrumizza<span>DOBRO MESTO. JOŠ BOLJI ZALOGAJ.</span></a><p>Za dobro društvo uvek vredi napraviti plan.</p><a href="index.html">Nazad na početnu <svg class="ui-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></footer>
+</body>
+</html>
