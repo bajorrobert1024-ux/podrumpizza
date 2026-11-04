@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "name": "desktop_layout_and_menu_source",
+      "status": "passed",
+      "detail": "Desktop original hero bounds and square story crop retained. Supplied pizza menu contains 16 exact prices, 32 cm sizes, source distinction and obscured-ingredient notice; other 19 concept items preserved. Mobile cards absent."
+    },
+    {
+      "name": "hero_actual_video_and_controls",
+      "status": "passed",
+      "detail": "Silent H264 video decodes and advances frames ({'duration': 15.958333, 'muted': True, 'loop': True, 'inline': True, 'width': 960, 'height': 768}); pause/resume works, offscreen playback pauses, manual pause persists."
+    },
+    {
+      "name": "hero_reduced_motion_and_failure",
+      "status": "passed",
+      "detail": "Reduced motion defaults to paused and permits explicit playback. Forced video network failure displays original photograph and hides unavailable controls."
+    },
+    {
+      "name": "booking_links_and_no_cart",
+      "status": "passed",
+      "detail": "All 6 visible home booking links open the separate reservation page in a new browser tab; no cart/list/add UI remains."
+    },
+    {
+      "name": "desktop_menu_categories_and_expansion",
+      "status": "passed",
+      "detail": "Desktop retains all five category tabs, correct item counts and six-to-sixteen pizza expansion."
+    },
+    {
+      "name": "desktop_search",
+      "status": "passed",
+      "detail": "Global ingredient search ignores Serbian diacritics; empty results and reset work."
+    },
+    {
+      "name": "details_source_allergens_and_focus",
+      "status": "passed",
+      "detail": "Pizza detail shows supplied price; drinks show concept price. Incomplete Slatkicca flags obscured ingredients. Focus trap, Escape, restored focus and new-tab booking work."
+    },
+    {
+      "name": "keyboard_and_links",
+      "status": "passed",
+      "detail": "Tabs support arrows/Home/End; external links retain opener/privacy protections."
+    },
+    {
+      "name": "mobile_photo_accordions_search_and_transition",
+      "status": "passed",
+      "detail": "At 320/390/760px only five photographic disclosures display (16/6/4/3/6). Native Enter toggles every category; correct details/focus, accent-insensitive search, auto-open, drinks search, no-results/reset and nav/new-tab booking pass. At 761px desktop tabs return without duplicate focusable menu."
+    },
+    {
+      "name": "desktop_intermediate_widths",
+      "status": "passed",
+      "detail": "Original desktop presentation retained without horizontal overflow at 761/768/1024/1300/1440px."
+    },
+    {
+      "name": "reservation_required_guests",
+      "status": "passed",
+      "detail": "Required contact/date/time/guests errors shown; empty, zero, fractional and over-limit guest counts cannot prepare a request."
+    },
+    {
+      "name": "reservation_contact_and_time_validation",
+      "status": "passed",
+      "detail": "Invalid phone/e-mail, past dates and a past time on today’s date are rejected."
+    },
+    {
+      "name": "reservation_meal_choices_and_safe_summary",
+      "status": "passed",
+      "detail": "Decide-on-arrival is default; advance meal needs dishes; later choice excludes stale dishes. Summary contains exact party/contact/time data and escapes markup safely without claiming confirmation."
+    },
+    {
+      "name": "reservation_edit_copy_and_privacy",
+      "status": "passed",
+      "detail": "Edit preserves all entered values; advance food appears in summary and identical clipboard/TXT content. Personal fields never enter local/session storage and clear on reload. Nothing is sent automatically."
+    },
+    {
+      "name": "reservation_responsive",
+      "status": "passed",
+      "detail": "Reservation form has no horizontal overflow at 320, 390, 768, 1024 and 1300px; no cart or saved-list controls."
+    },
+    {
+      "name": "runtime_assets",
+      "status": "passed",
+      "detail": "No browser page errors, failed requests or HTTP asset errors during complete desktop/mobile runs."
+    }
+  ],
+  "page_errors": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "media_lifecycle_cancellations": [
+    {
+      "url": "http://127.0.0.1:8082/assets/hero-ambience.mp4",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:8082/assets/hero-ambience.mp4",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:8082/assets/hero-ambience.mp4",
+      "failure": "net::ERR_ABORTED"
+    }
+  ]
+}
